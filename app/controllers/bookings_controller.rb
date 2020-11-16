@@ -8,8 +8,11 @@ end
 def create
   @booking = Booking.new(booking_params)
   @book = Book.find(params[:book_id])
-  @booking.book = @booking
-
+  @booking.book = @book
+    if booking.after_save
+      redirect_to books_path
+    else
+      render :new
 end
 
 
