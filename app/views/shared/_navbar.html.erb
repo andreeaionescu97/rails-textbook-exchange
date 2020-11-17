@@ -12,10 +12,10 @@
     <ul class="navbar-nav mr-auto">
       <% if user_signed_in? %>
         <li class="nav-item active">
-          <%= link_to "Browse", "#", class: "nav-link" %>
+          <%= link_to "Browse", books_path, class: "nav-link" %>
         </li>
         <li class="nav-item">
-          <%= link_to "Lend to others", "#", class: "nav-link" %>
+          <%= link_to "Lend to others", new_book_path, class: "nav-link" %>
         </li>
         <li class="nav-item dropdown">
           <%= image_tag "user.svg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>

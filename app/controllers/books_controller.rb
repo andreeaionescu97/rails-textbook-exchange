@@ -3,12 +3,14 @@ class BooksController < ApplicationController
 
     def index
       @books = Book.all
+
     end
 
     def show
         @book = Book.find(params[:id])
+        # @user = Book.user.email(params[:id])
 	end
-    
+
     def new
         @book = Book.new
     end
@@ -18,7 +20,7 @@ class BooksController < ApplicationController
         @book.user = current_user
         if @book.save!
             redirect_to book_path(@book)
-        else 
+        else
             render :new
         end
     end
