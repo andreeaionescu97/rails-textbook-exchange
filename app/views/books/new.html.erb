@@ -1,15 +1,42 @@
+
+<body class="land-page">
+<div class="d-flex">
+  <div class="flex-header">
+<h1 class="land-header"> Land to others </h1>
+<h2 class="land-subheader"> Become a member! </h2>
+  </div>
+  <div class="flex-form">
+<div class="container-land d-flex flex-column">
 <%= form_for(@book) do |f| %>
-  <%= f.label :title %>
-  <%= f.text_field :title %>
-  <%= f.label :author %>
-  <%= f.text_field :author %>
-  <%= f.label :genre %>
-  <%= f.text_field :genre %>
-  <%= f.label :condition %>
-  <%= f.text_field :condition %>
-  <%= f.label :year %>
-  <%= f.number_field :year %>
-  <%= f.label :publisher %>
-  <%= f.text_field :publisher %>
-  <%= f.submit %>
+ <div class="p-2 col-xs-2">
+  <%= f.label :title, class: "land-label" %>
+  <%= f.text_field :title, class: "form-control" %>
+</div>
+<div class='p-2'>
+  <%= f.label :author, class: "land-label" %>
+  <%= f.text_field :author, class: "form-control" %>
+</div>
+<div class='p-2'>
+  <%= f.label :genre, class: "land-label" %>
+  <%= f.text_field :genre, class: "form-control" %>
+</div>
+<div class='p-2'>
+  <%= f.label :condition, class: "land-label" %>
+  <%= f.text_field :condition, class: "form-control" %>
+</div>
+<div class='p-2'>
+  <%= f.label :year, class: "land-label" %>
+  <%= f.number_field :year, class: "form-control" %>
+</div>
+<div class='p-2'>
+  <%= f.label :publisher, class: "land-label" %>
+  <%= f.text_field :publisher, class: "form-control" %>
+</div>
+<div class= "p-2 justify-content-center">
+  <%= f.submit :submit, class: "btn" %>
+</div>
 <% end %>
+</div>
+</div>
+</div>
+</body>
