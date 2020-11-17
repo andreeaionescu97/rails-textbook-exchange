@@ -1,2 +1,13 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<% provide(:nav_style, "transparent-nav") %>
+
+<%= video_tag "student.mp4", autoplay: :autoplay, loop: :loop, muted: :muted, class: "home-video" %>
+
+
+<h1 class="form-message"> Find your book here </h1>
+
+<form class="form-inline">
+  <div class="form-group mx-sm-3 mb-2">
+    <input type="text" class="form-control" placeholder="type in title, author, publisher...">
+  </div>
+  <button type="submit" class="btn btn-primary mb-2">Search</button>
+</form>
