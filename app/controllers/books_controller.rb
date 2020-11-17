@@ -8,7 +8,6 @@ class BooksController < ApplicationController
 
     def show
         @book = Book.find(params[:id])
-        # @user = Book.user.email(params[:id])
 	end
 
     def new
