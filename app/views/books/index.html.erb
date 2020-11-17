@@ -1,0 +1,11 @@
+<h3>Book List</h3>
+ 
+
+
+ <ul>
+  <%= @books do |book| %>
+  <li><%= =link_to book.title, book_path(book.id) %></li>
+ <%= end %>
+ </ul>
+
+
