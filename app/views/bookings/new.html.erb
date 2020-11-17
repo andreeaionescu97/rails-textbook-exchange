@@ -1,0 +1,9 @@
+<%= form_for [@book, @booking] do |f| %>
+  <%= f.label :start_date %>
+  <%= f.text_field :start_date %>
+  <%= f.label :end_date %>
+  <%= f.text_field :end_date %>
+  <%= f.label :price %>
+  <%= f.number_field :price %>
+  <%= f.submit %>
+<% end %>
