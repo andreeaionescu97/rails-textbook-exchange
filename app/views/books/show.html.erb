@@ -1,7 +1,61 @@
-<h1><%= @book.title %></h1>
-<h1><%= @book.author %></h1>
-<h1><%= @book.genre %></h1>
-<h1><%= @book.condition %></h1>
-<h1><%= @book.year %></h1>
-<h1><%= @book.publisher %></h1>
+<body class="show-page">
+  <div class="title-author">
+    <h1><%= @book.title %></h1>
+    <h2><%= @book.author %></h2>
+  </div>
+
+  <div class="show-photos d-flex">
+    <div class="show-photo">
+    </div>
+    <div class="show-photo">
+    </div>
+    <div class="show-photo">
+    </div>
+  </div>
+
+  <div class="member-info d-flex justify-content-between">
+    <div>
+    <h3>Book posted by</h3>
+    <h4><%= @book.user.email %></h4>
+    </div>
+    <div>
+      <%= image_tag "user.svg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+    </div>
+  </div>
+
+  <hr class="divide-member">
+
+  <div class="show-container d-flex justify-content-between">
+
+    <div class="book-details">
+      <div class="book-detail-1 d-flex">
+         <div class="icon-details"><%= image_tag "publisher.svg" %></div>
+         <h3><%= @book.publisher %></h3>
+      </div>
+      <div class="book-detail d-flex">
+        <div class="icon-details"><%= image_tag "genre.svg" %></div>
+        <h3><%= @book.genre %></h3>
+      </div>
+       <div class="book-detail d-flex">
+        <div class="icon-details"><%= image_tag "condition.svg" %></div>
+      <h3><%= @book.condition %></h3>
+    </div>
+     <div class="book-detail d-flex">
+        <div class="icon-details"><%= image_tag "year.svg" %></div>
+      <h3><%= @book.year %></h3>
+    </div>
+  </div>
+
+
+    <div class="book-price">
+      <h3 class="text-price"> PRICE </h3>
+      <hr class="divide-price">
+    </div>
+
+</div>
+
+<hr class="divide-member-2">
+
+</body>
+
 
