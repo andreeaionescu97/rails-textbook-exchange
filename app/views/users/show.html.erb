@@ -1,0 +1,39 @@
+
+<body class="land-page">
+<div class="d-flex">
+  <div class="flex-header">
+<h1 class="land-header">User email: <%= @user.email %> </h1>
+<h2 class="land-subheader"> here are your books & bookings </h2>
+
+
+
+<div>my books</div>
+<div>
+    <% if @user.books.exists? %>
+            <% @user.books.each do |user| %>    
+            <%= user.title %>
+            <%= user.author %>
+            <%= user.genre %>
+            <%= user.publisher %>
+            <%= user.condition %>
+        <% end  %>
+    <% else %> 
+        <p>You don't have any books</p>
+    <% end %>
+</div>
+
+<div>my bookings</div>
+
+<div>
+
+    <% if @user.bookings.exists? %>
+        <% @user.bookings.each do |user| %>
+            <%= user.start_date %>
+            <%= user.end_date %>
+        <% end  %>
+    <% else %> 
+        <p> "You don't have any bookings" </p>  
+    <% end %>
+</div>
+
+</body>
