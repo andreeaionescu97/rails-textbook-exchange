@@ -5,15 +5,15 @@
     <% @books.each do |book| %>
       <div class="card-product">
         <div class="card-product-infos">
+          <div class="image-display"><%= cl_image_tag book.photo.key, height: 300, width: 400, crop: :fill%></div>
           <h3><%= link_to book.title, book_path(book), class: "book-title-index" %> </h3>
           <h4><%= book.author %> </h4>
           <p><em> Belongs to <%=book.user.email%></em></p>
           <p><em>On <%=book.created_at.strftime("%A, %b %d")%></em></p>
-          <div class="remove_btn">
-            <%#= link_to "Remove", book_path(book), method: :delete, :class => "btn btn-flat" %>
+          <%#= link_to "Remove", book_path(book), method: :delete, :class => "btn-remove" %>
           </div>
         </div>
-      </div>
+
     <%end%>
 </div>
 </body>

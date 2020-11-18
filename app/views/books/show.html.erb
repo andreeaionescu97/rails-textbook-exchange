@@ -6,11 +6,9 @@
 
   <div class="show-photos d-flex">
     <div class="show-photo">
+      <%= cl_image_tag @book.photo.key, height: 400, width: 600, crop: :fill, class: "show-photo" %>
     </div>
-    <div class="show-photo">
-    </div>
-    <div class="show-photo">
-    </div>
+
   </div>
 
   <div class="member-info d-flex justify-content-between">

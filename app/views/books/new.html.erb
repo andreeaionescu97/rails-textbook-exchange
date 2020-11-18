@@ -7,7 +7,7 @@
   </div>
   <div class="flex-form">
 <div class="container-land d-flex flex-column">
-<%= form_for(@book) do |f| %>
+<%= simple_form_for(@book) do |f| %>
  <div class="p-2 col-xs-2">
   <%= f.label :title, class: "land-label" %>
   <%= f.text_field :title, class: "form-control" %>
@@ -31,6 +31,9 @@
 <div class='p-2'>
   <%= f.label :publisher, class: "land-label" %>
   <%= f.text_field :publisher, class: "form-control" %>
+</div>
+<div class='p-2'>
+<%= f.input :photo, as: :file %>
 </div>
 <div class= "p-2 justify-content-center">
   <%= f.submit :submit, class: "btn" %>

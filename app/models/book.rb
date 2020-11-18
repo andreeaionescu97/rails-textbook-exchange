@@ -8,6 +8,5 @@ class Book < ApplicationRecord
   validates :year, presence: true
   validates :publisher, presence: true
 
-
-
+  has_one_attached :photo
 end
