@@ -1,9 +1,21 @@
-<%= form_for [@book, @booking] do |f| %>
-  <%= f.label :start_date %>
-  <%= f.text_field :start_date %>
-  <%= f.label :end_date %>
-  <%= f.text_field :end_date %>
-  <%= f.label :price %>
-  <%= f.number_field :price %>
-  <%= f.submit %>
-<% end %>
+<body class="booking-page">
+<div class="d-flex">
+  <div class="flex-header">
+    <h1 class="land-header mb-4"> Make a booking </h1>
+    <h2 class="land-subheader"> Lend your book now! </h2>
+  </div>
+  <div class="flex-form">
+  <div class="container-book d-flex flex-column">
+    <h3 class="make-a-booking"> Choose the period you want to lend the book</h3>
+    <%= simple_form_for [@book, @booking] do |f| %>
+      <%= f.input :start_date, class: "date-text"%>
+
+      <%= f.input :end_date, class: "date-text" %>
+
+      <%= f.submit :submit, class: "btn mt-5 mb-3" %>
+    <% end %>
+  </div>
+</div>
+</div>
+</body>
+
