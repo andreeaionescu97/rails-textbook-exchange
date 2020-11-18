@@ -32,7 +32,7 @@ Book.create(title: "London Arts in 20th Century", author: "Ann Writer", genre: "
 
 puts "Finished creating #{Book.count} books"
 
-require "open-uri"
+# require "open-uri"
 
 # file = URI.open('https://giantbomb1.cbsistatic.com/uploads/original/9/99864/2419866-nes_console_set.png')
 # article = Article.new(title: 'NES', body: "A great console")
