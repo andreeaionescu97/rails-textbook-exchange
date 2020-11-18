@@ -1,4 +1,11 @@
-<h2>Sign up</h2>
+<body class="sign-up-page">
+
+<div class="background-svg">
+
+  <div  class="container justify-content-center">
+
+  <h1 class="log-in-text">Sign up</h1>
+  <hr>
 
 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= f.error_notification %>
@@ -15,6 +22,7 @@
     <%= f.input :password_confirmation,
                 required: true,
                 input_html: { autocomplete: "new-password" } %>
+    <%= f.input :avatar %>
   </div>
 
   <div class="form-actions">
@@ -23,3 +31,7 @@
 <% end %>
 
 <%= render "devise/shared/links" %>
+  </div>
+</div>
+</body>
+
