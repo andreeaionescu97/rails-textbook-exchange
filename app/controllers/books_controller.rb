@@ -3,8 +3,8 @@ class BooksController < ApplicationController
       @books = Book.all
       @markers = @books.geocoded.map do |book|
         {
-          lat: flat.latitude,
-          lng: flat.longitude
+          lat: book.latitude,
+          lng: book.longitude
         }
       end
     end
