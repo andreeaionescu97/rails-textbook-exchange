@@ -1,13 +1,17 @@
 class BooksController < ApplicationController
     
-  def index
-      @books = Book.all
-      @markers = @books.geocoded.map do |book|
-        {
-          lat: book.latitude,
-          lng: book.longitude
-        }
+    def index
+      if params[:query].present?
+        @books = Book.search_by_title_and_author(params[:query])
+      else
+        @books = Book.all
       end
+        @markers = @books.geocoded.map do |book|
+          {
+            lat: book.latitude,
+            lng: book.longitude
+          }
+        end
     end
   
 
