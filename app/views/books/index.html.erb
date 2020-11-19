@@ -5,9 +5,14 @@
     <% @books.each do |book| %>
       <div class="card-product">
         <div class="card-product-infos">
-          <% if book.photo.attached? %>
-            <div class="image-display"><%= cl_image_tag book.photo.key, height: 300, width: 400, crop: :fill%></div>
-          <% end %>
+          <div class="image-display">
+              <% if book.photo.attached? %>
+                <%= cl_image_tag book.photo.key, height: 300, width: 400, crop: :fill%>
+              <% else %>
+                <%= image_tag "https://www.pluggedin.com/wp-content/uploads/2020/01/placeholder_book.jpg", style: "height: 300; width: 400;" %>
+            <% end %>
+          </div>
+
           <h3><%= link_to book.title, book_path(book), class: "book-title-index" %> </h3>
           <h4><%= book.author %> </h4>
           <p><em> Belongs to <%=book.user.email%></em></p>

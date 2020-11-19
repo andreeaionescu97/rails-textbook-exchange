@@ -10,8 +10,11 @@
     <div class="book-price">
       <h3 class="text-price"> PRICE </h3>
       <h1><%= @book.price %> £</h1>
-
-      <div class="btn-make-booking"><%= link_to "Make a booking", new_book_booking_path(@book), class: "btn-color" %></div>
+      <% unless @book.user == current_user %>
+        <div class="btn-make-booking">
+          <%= link_to "Make a booking", new_book_booking_path(@book), class: "btn-color" %>
+        </div>
+      <% end %>
     </div>
   </div>
 
@@ -23,7 +26,11 @@
     <h4><%= @book.user.email %></h4>
     </div>
     <div>
-     <%= cl_image_tag current_user.avatar.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+      <% if @book.user.avatar.attached? %>
+        <%= cl_image_tag @book.user.avatar.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+      <% else %>
+        <%= image_tag "user.svg", class: "avatar dropdown-toggle" %>
+      <% end %>
     </div>
   </div>
 
