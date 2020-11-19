@@ -1,5 +1,6 @@
 class BooksController < ApplicationController
-    def index
+    
+  def index
       @books = Book.all
       @markers = @books.geocoded.map do |book|
         {
