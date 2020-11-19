@@ -7,6 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 puts "Destroying old users"
+Book.destroy_all
 User.destroy_all
 puts "Creating new users"
 
@@ -21,9 +22,12 @@ puts "Destroying old books"
 Book.destroy_all
 puts "Creating Books"
 
-Book.create(title: "Great Expectations", author: "Charles Dickens", genre: "Historical Fiction", condition: "Badly Worn", year: 1989, publisher: "John Whiley & Sons", price: 3, user: user)
-Book.create(title: "Integral Equations for Civil Engineering", author: "Mat Ematics", genre: "Engineering", condition: "Like New", year: 2000, publisher: "Oxfort University Press", price: 10, user: usera)
-Book.create(title: "London Arts in 20th Century", author: "Ann Writer", genre: "Art", condition: "Worn", year: 2010, publisher: "ACC Art Books", price: 15, user: user)
+Book.create(title: "Great Expectations", author: "Charles Dickens", genre: "Historical Fiction", condition: "Badly Worn", year: 1989, publisher: "John Whiley & Sons", price: 3, user: user, address: "Hackney, London")
+
+Book.create(title: "Integral Equations for Civil Engineering", author: "Mat Ematics", genre: "Engineering", condition: "Like New", year: 2000, publisher: "Oxfort University Press", price: 10, user: usera, address: "Colchester, Essex")
+
+
+Book.create(title: "London Arts in 20th Century", author: "Ann Writer", genre: "Art", condition: "Worn", year: 2010, publisher: "ACC Art Books", price: 15, user: user, address: "Richmond, London")
 
 
 puts "Finished creating #{Book.count} books"
