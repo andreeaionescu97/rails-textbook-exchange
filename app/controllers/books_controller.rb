@@ -8,7 +8,19 @@ class BooksController < ApplicationController
         }
       end
     end
+    
+    # def index
+    #   @Books = Book.geocoded
   
+    #   @markers = @Books.map do |book|
+    #     {
+    #       lat: book.latitude,
+    #       lng: book.longitude,
+    #       infoWindow: render_to_string(partial: "infowindow", locals: { book: book }),
+    #       image_url: helpers.asset_url('REPLACE_THIS_WITH_YOUR_IMAGE_IN_ASSETS')
+    #     }
+    #   end
+    # end
 
     def show
       @book = Book.find(params[:id])
