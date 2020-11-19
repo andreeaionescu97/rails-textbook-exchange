@@ -9,4 +9,5 @@ Rails.application.routes.draw do
   resources :bookings, only: [ :show ]
 
   resources :users, only: [:show, :destroy]
+
 end
