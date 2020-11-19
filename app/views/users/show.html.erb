@@ -1,12 +1,11 @@
 
+
 <body class="profile-page">
 <div class="d-flex">
   <div class="flex-header">
 <h3 class="user-header mb-3">User email: <%= @user.email %> </h3>
 <h3 class="user-subheader mb-5"> Manage your books & bookings! </h3>
-
 <div class="d-flex justify-content-between">
-
 <div class="profile-books">
 <h1>My books</h1>
 <div>
@@ -26,16 +25,19 @@
 </div>
 <div class="profile-bookings">
 <h1>My bookings</h1>
-
 <div>
-
-    <% if @user.bookings.exists? %>
+    <% if @user.books.exists? %>
     <ul>
-       <% @user.bookings.each do |user| %>
-          <li>   <%= user.start_date %>
-            <%= user.end_date %> </li>
-
-        <% end  %>
+         <% @user.books.each do |book| %>
+          <% book.bookings.each do |booking| %>
+            <%= booking.start_date %>
+            <%= booking.end_date %>
+            <% if booking.book.user == current_user %>
+                <%= link_to 'Approve', approve_booking_path(booking), class: "button-xs success", method: :post %>
+                <%= link_to 'Reject', reject_booking_path(booking), class: "button-xs success", method: :post %>
+                <% end %>
+            <% end %>
+         <% end  %>
          </ul>
     <% else %>
         <p> "You don't have any bookings" </p>

@@ -22,6 +22,22 @@ class BookingsController < ApplicationController
     @user = @booking.user
   end
 
+  def approve
+    @booking = Booking.find(params[:id])
+    @booking.update(state: "Approved")
+    redirect_to booking_path(@booking)
+    # need to add a state file but confused wheather it should be boolean or string
+    #as in like three strings one for pending, approved or rejected
+  end
+
+  def reject
+    @booking = Booking.find(params[:id])
+    @booking.update(state: "Rejected")
+    redirect_to booking_path(@booking)
+    # need to add a state file but confused wheather it should be boolean or string
+    #as in like three strings one for pending, approved or rejected
+  end
+
   private
 
   def booking_params
