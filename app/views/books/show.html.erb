@@ -3,13 +3,19 @@
     <h1><%= @book.title %></h1>
     <h2><%= @book.author %></h2>
   </div>
-
-  <div class="show-photos d-flex">
-    <div class="show-photo">
+  <div class="d-flex justify-content-between">
+    <div>
       <%= cl_image_tag @book.photo.key, height: 400, width: 600, crop: :fill, class: "show-photo" %>
     </div>
+    <div class="book-price">
+      <h3 class="text-price"> PRICE </h3>
+      <h1><%= @book.price %> £</h1>
 
+      <div class="btn-make-booking"><%= link_to "Make a booking", new_book_booking_path(@book), class: "btn-color" %></div>
+    </div>
   </div>
+
+<hr class="divide-member">
 
   <div class="member-info d-flex justify-content-between">
     <div>
@@ -17,7 +23,7 @@
     <h4><%= @book.user.email %></h4>
     </div>
     <div>
-      <%= image_tag "user.svg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+     <%= cl_image_tag current_user.avatar.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
     </div>
   </div>
 
@@ -45,12 +51,7 @@
   </div>
 
 
-    <div class="book-price">
-      <h3 class="text-price"> PRICE </h3>
-      <h1><%= @book.price %> £</h1>
-      <hr class="divide-price">
-      <div class="btn-make-booking"><%= link_to "Make a booking", new_book_booking_path(@book), class: "btn-color" %></div>
-    </div>
+
 
 </div>
 

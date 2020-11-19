@@ -1,24 +1,39 @@
 
 <body class="show-booking">
+ <div class="d-flex justify-content-between">
   <div class="title-author">
-    <h1>You succesfully completed your booking!</h1>
-    <h2>Please check if the information bellow is correct</h2>
+    <h1>Your booking is pending!</h1>
+    <h2>Please check if the information below is correct</h2>
   </div>
 
-  <div class="show-photos d-flex">
-    <div class="show-photo">
+    <div class="pending-container">
+    <h2>BOOKING PENDING</h2>
+  </div>
+</div>
+<div class="d-flex justify-content-between">
+
+    <div>
       <%= cl_image_tag @book.photo.key, height: 400, width: 600, crop: :fill, class: "show-photo" %>
     </div>
 
-  </div>
-
-  <div class="member-info d-flex justify-content-between">
+  <div class="date-container">
+      <h3 class="text-price"> PRICE </h3>
+      <h1 class="text-price-booking"><%= @book.price %> £</h1>
+      <h4 class="date-text">start date</h4>
+      <h3 class="text-price-booking"><%= @booking.start_date %></h3>
+      <h4 class="date-text">end date</h4>
+      <h3 class="text-price-booking"><%= @booking.start_date %></h3>
+      <div class="btn-manage-booking"><%= link_to "Manage your bookings", user_path(@user), class: "btn-color" %></div>
+    </div>
+</div>
+<hr class="divide-member-3">
+  <div class="member-info-booking d-flex justify-content-between">
     <div>
     <h3>Book posted by</h3>
     <h4><%= @book.user.email %></h4>
     </div>
     <div>
-      <%= image_tag "user.svg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+     <%= cl_image_tag current_user.avatar.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
     </div>
   </div>
 
@@ -28,11 +43,11 @@
 
     <div class="book-details">
       <div class="book-detail-1 d-flex">
-         <div class="icon-details"><%= image_tag "publisher.svg" %></div>
+         <div class="icon-details"><%= image_tag "title.svg" %></div>
          <h4><%= @book.title %></h4>
       </div>
       <div class="book-detail d-flex">
-         <div class="icon-details"><%= image_tag "publisher.svg" %></div>
+         <div class="icon-details"><%= image_tag "writer.svg" %></div>
          <h4><%= @book.author %></h4>
       </div>
       <div class="book-detail d-flex">
@@ -54,14 +69,7 @@
   </div>
 
 
-    <div class="book-price">
-      <h3 class="text-price"> PRICE </h3>
-      <h1><%= @book.price %> £</h1>
-      <hr class="divide-price">
-      <h3 class="text-price"><%= @booking.start_date %></h3>
-      <h3 class="text-price"><%= @booking.start_date %></h3>
-      <div class="btn-make-booking"><%= link_to "Manage your bookings", new_book_booking_path(@book), class: "btn-color" %></div>
-    </div>
+
 
 </div>
 

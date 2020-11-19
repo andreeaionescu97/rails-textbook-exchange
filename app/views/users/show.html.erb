@@ -1,39 +1,46 @@
 
-<body class="land-page">
+<body class="profile-page">
 <div class="d-flex">
   <div class="flex-header">
-<h1 class="land-header">User email: <%= @user.email %> </h1>
-<h2 class="land-subheader"> here are your books & bookings </h2>
+<h3 class="user-header mb-3">User email: <%= @user.email %> </h3>
+<h3 class="user-subheader mb-5"> Manage your books & bookings! </h3>
 
+<div class="d-flex justify-content-between">
 
-
-<div>my books</div>
+<div class="profile-books">
+<h1>My books</h1>
 <div>
     <% if @user.books.exists? %>
-            <% @user.books.each do |user| %>    
-            <%= user.title %>
+        <ul>    <% @user.books.each do |user| %>
+           <li>  <%= user.title %>
             <%= user.author %>
             <%= user.genre %>
             <%= user.publisher %>
-            <%= user.condition %>
+            <%= user.condition %> </li>
         <% end  %>
-    <% else %> 
+      </ul>
+    <% else %>
         <p>You don't have any books</p>
     <% end %>
 </div>
-
-<div>my bookings</div>
+</div>
+<div class="profile-bookings">
+<h1>My bookings</h1>
 
 <div>
 
     <% if @user.bookings.exists? %>
-        <% @user.bookings.each do |user| %>
-            <%= user.start_date %>
-            <%= user.end_date %>
+    <ul>
+       <% @user.bookings.each do |user| %>
+          <li>   <%= user.start_date %>
+            <%= user.end_date %> </li>
+
         <% end  %>
-    <% else %> 
-        <p> "You don't have any bookings" </p>  
+         </ul>
+    <% else %>
+        <p> "You don't have any bookings" </p>
     <% end %>
 </div>
-
+</div>
+</div>
 </body>
