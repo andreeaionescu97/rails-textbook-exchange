@@ -1,0 +1,30 @@
+.page-footer {
+
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  height: auto;
+  margin-bottom: -100px;
+    &.transparent-footer {
+      background-color: transparent;
+    }
+}
+
+ .container-footer {
+  text-align: center;
+  margin: 0 auto;
+  height: 70px;
+  margin-left: 400px;
+  margin-right: 400px;
+}
+
+.fab {
+  color: white;
+  margin-top: 35px;
+  color: #264653;
+}
+
+.footer-copyright {
+  color: #e76f51;
+}
