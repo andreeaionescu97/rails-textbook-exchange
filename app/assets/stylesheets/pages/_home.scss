@@ -1,7 +1,7 @@
 // Specific CSS for your home-page
 .home-video {
  width: 100vw;
- height: 100vh;
+ height: 100%;
  position: absolute;
  display: flex;
  justify-content: center;
@@ -38,7 +38,7 @@
 .form-message {
   color: #e76f51;
   text-align: center;
-  margin-top: 250px;
+  padding-top: 250px;
   font-size: 80px;
 }
 

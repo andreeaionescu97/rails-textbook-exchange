@@ -12,6 +12,7 @@
                 <%= image_tag "https://www.pluggedin.com/wp-content/uploads/2020/01/placeholder_book.jpg", style: "height: 300; width: 400;" %>
             <% end %>
           </div>
+
           <h3><%= link_to book.title, book_path(book), class: "book-title-index" %> </h3>
           <h4><%= book.author %> </h4>
           <p><em> Belongs to <%=book.user.email%></em></p>
@@ -22,4 +23,20 @@
 
     <%end%>
 </div>
+
+<div id="map"
+     style="width: 100%; height: 600px;"
+     data-markers="<%= @markers.to_json %>"
+     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+</div>
+
+<%= form_tag books_path, method: :get do %>
+  <%= text_field_tag :query,
+    params[:query],
+    class: "form-control",
+    placeholder: "Find a book"
+  %>
+  <%= submit_tag "Search", class: "btn btn-primary" %>
+<% end %>
+
 </body>
