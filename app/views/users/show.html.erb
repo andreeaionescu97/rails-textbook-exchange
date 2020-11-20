@@ -64,6 +64,7 @@
     <% end %>
 
 </div>
+
             </form>
         </div>
         <div class="overlay-container">
@@ -84,6 +85,20 @@
         </div>
     </div>
 
+
+
+</body>
+=======
+</div>
+</div>
+
+<% if @wishes.any? %>
+    <% @wishes.each do |wish| %>
+    <p><%= wish.book.title %> </p>
+    <% end %>
+<% else %>
+    <p>Nothing in your wishlist!</p>
+<% end %>
 
 
 </body>
