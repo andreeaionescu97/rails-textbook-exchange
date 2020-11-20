@@ -9,36 +9,36 @@
 <div class="container-land d-flex flex-column">
 <%= simple_form_for(@book) do |f| %>
  <div class="p-2 col-xs-2">
-  <%= f.label :title, class: "land-label" %>
-  <%= f.text_field :title, class: "form-control" %>
+  <%= f.input :title, class: "land-label" %>
+  <%#= f.text_field :title, class: "form-control" %>
 </div>
 <div class='p-2'>
-  <%= f.label :author, class: "land-label" %>
-  <%= f.text_field :author, class: "form-control" %>
+  <%= f.input :author, class: "land-label" %>
+  <%#= f.text_field :author, class: "form-control" %>
 </div>
 <div class='p-2'>
-  <%= f.label :genre, class: "land-label" %>
-  <%= f.text_field :genre, class: "form-control" %>
+  <%= f.input :genre, class: "land-label" %>
+  <%#= f.text_field :genre, class: "form-control" %>
 </div>
 <div class='p-2'>
-  <%= f.label :condition, class: "land-label" %>
-  <%= f.text_field :condition, class: "form-control" %>
+  <%= f.input :condition, class: "land-label" %>
+  <%#= f.text_field :condition, class: "form-control" %>
 </div>
 <div class='p-2'>
-  <%= f.label :year, class: "land-label" %>
-  <%= f.number_field :year, class: "form-control" %>
+  <%= f.input :year, class: "land-label" %>
+  <%#= f.number_field :year, class: "form-control" %>
 </div>
 <div class='p-2'>
-  <%= f.label :publisher, class: "land-label" %>
-  <%= f.text_field :publisher, class: "form-control" %>
+  <%= f.input :publisher, class: "land-label" %>
+  <%#= f.text_field :publisher, class: "form-control" %>
 </div>
 <div class='p-2'>
-  <%= f.label :price, class: "land-label" %>
-  <%= f.number_field :price, class: "form-control" %>
+  <%= f.input :price, class: "land-label" %>
+  <%#= f.number_field :price, class: "form-control" %>
 </div>
 <div class='p-2'>
-  <%= f.label :address, class: "land-label" %>
-  <%= f.text_field :address, class: "form-control" %>
+  <%= f.input :address, class: "land-label" %>
+  <%#= f.text_field :address, class: "form-control" %>
 </div>
 <div class='p-2'>
 <%= f.input :photo, as: :file %>
