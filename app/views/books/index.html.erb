@@ -18,6 +18,7 @@
           <p><em> Belongs to <%=book.user.email%></em></p>
           <p><em>On <%=book.created_at.strftime("%A, %b %d")%></em></p>
           <%#= link_to "Remove", book_path(book), method: :delete, :class => "btn-remove" %>
+          <%= link_to 'Add to wishlist', book_wishes_path(book.id), method: :post %>
           </div>
         </div>
 

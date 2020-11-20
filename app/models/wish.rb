@@ -1,4 +1,4 @@
-class Wishlist < ApplicationRecord
+class Wish < ApplicationRecord
   belongs_to :book
   belongs_to :user
 end

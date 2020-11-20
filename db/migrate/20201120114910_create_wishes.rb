@@ -1,6 +1,6 @@
-class CreateWishlists < ActiveRecord::Migration[6.0]
+class CreateWishes < ActiveRecord::Migration[6.0]
   def change
-    create_table :wishlists do |t|
+    create_table :wishes do |t|
       t.references :book, null: false, foreign_key: true
       t.references :user, null: false, foreign_key: true
 

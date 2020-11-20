@@ -10,6 +10,7 @@ class Book < ApplicationRecord
   
   belongs_to :user
   has_many :bookings
+  has_many :wishlists
 
   validates :title, presence: true
   validates :author, presence: true

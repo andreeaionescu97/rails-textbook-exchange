@@ -42,7 +42,18 @@
     <% else %>
         <p> "You don't have any bookings" </p>
     <% end %>
+
 </div>
 </div>
 </div>
+
+<% if @wishes.any? %>
+    <% @wishes.each do |wish| %>
+    <p><%= wish.book.title %> </p>
+    <% end %>
+<% else %>
+    <p>Nothing in your wishlist!</p>
+<% end %>
+
+
 </body>
