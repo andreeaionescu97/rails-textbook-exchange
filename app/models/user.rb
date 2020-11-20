@@ -7,6 +7,6 @@ class User < ApplicationRecord
   has_many :books
   has_many :bookings
   has_many :incoming_bookings, through: :books, source: :bookings
-
+  has_many :wishes
   has_one_attached :avatar
 end

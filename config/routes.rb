@@ -5,7 +5,9 @@ Rails.application.routes.draw do
   resources :books do
     resources :reviews, only: [:new, :create, :show]
     resources :bookings, only: [ :new, :create ]
+    resources :wishes, only: :create 
   end
+  resources :wishes, only: :destroy
 
   resources :bookings, only: [ :show ] do 
     member do
@@ -14,6 +16,6 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :users, only: [:show, :destroy]
-
-end
+  resources :users, only: [:show, :destroy] 
+ 
+  end
