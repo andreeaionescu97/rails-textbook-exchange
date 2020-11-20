@@ -1,49 +1,94 @@
 
 
 <body class="profile-page">
-<div class="d-flex">
-  <div class="flex-header">
-<h3 class="user-header mb-3">User email: <%= @user.email %> </h3>
-<h3 class="user-subheader mb-5"> Manage your books & bookings! </h3>
-<div class="d-flex justify-content-between">
-<div class="profile-books">
-<h1>My books</h1>
-<div>
+<h1 class="user-header">Manage all your <span style="color: #2a9d8f; font-size: 40px;">books</span> and bookings in one page! </h1>
+<div class="container" id="container">
+        <div class="form-container sign-up-container">
+            <form action="#">
+                <div>
+                  <% if @user.books.exists? %>
+
+                      <div class="card-container-user">
+                       <% @user.books.each do |book| %>
+                        <% book.bookings.each do |booking| %>
+                        <div class="card-product-user">
+
+                           <div class="image-display-user">
+                        <% if book.photo.attached? %>
+                          <%= cl_image_tag book.photo.key, height: 100, width: 180, crop: :fill%>
+                        <% else %>
+                          <%= image_tag "https://www.pluggedin.com/wp-content/uploads/2020/01/placeholder_book.jpg", style: "height: 300; width: 400;" %>
+                      <% end %>
+                    </div>
+                      <%= booking.start_date %>
+                          <%= booking.end_date %>
+                          <% if booking.book.user == current_user %>
+                              <%= link_to 'Approve', approve_booking_path(booking), class: "button-xs success", method: :post %>
+                              <%= link_to 'Reject', reject_booking_path(booking), class: "button-xs success", method: :post %>
+                              <% end %>
+
+                     </div>
+                          <% end %>
+                       <% end  %>
+
+                     </div>
+                      <% else %>
+                      <p> "You don't have any bookings" </p>
+                  <% end %>
+              </div>
+            </form>
+        </div>
+        <div class="form-container sign-in-container">
+            <form action="#">
+                <div>
     <% if @user.books.exists? %>
-        <ul>    <% @user.books.each do |user| %>
-           <li>  <%= user.title %>
-            <%= user.author %>
-            <%= user.genre %>
-            <%= user.publisher %>
-            <%= user.condition %> </li>
-        <% end  %>
-      </ul>
+    <div class="card-container-user">
+         <% @user.books.each do |book| %>
+          <div class="card-product-user">
+             <div class="image-display-user">
+              <% if book.photo.attached? %>
+                          <%= cl_image_tag book.photo.key, height: 100, width: 180, crop: :fill%>
+                        <% else %>
+                          <%= image_tag "https://www.pluggedin.com/wp-content/uploads/2020/01/placeholder_book.jpg", style: "height: 300; width: 400;" %>
+                      <% end %>
+                    </div>
+           <p class="user-book-info-title"> <%= book.title%></p>
+           <p class="user-book-info"> <%= book.author %></p>
+          <p class="user-book-info"> <%= book.genre %></p>
+
+          </div>
+        <% end %>
+        </div>
     <% else %>
         <p>You don't have any books</p>
     <% end %>
-</div>
-</div>
-<div class="profile-bookings">
-<h1>My bookings</h1>
-<div>
-    <% if @user.books.exists? %>
-    <ul>
-         <% @user.books.each do |book| %>
-          <% book.bookings.each do |booking| %>
-            <%= booking.start_date %>
-            <%= booking.end_date %>
-            <% if booking.book.user == current_user %>
-                <%= link_to 'Approve', approve_booking_path(booking), class: "button-xs success", method: :post %>
-                <%= link_to 'Reject', reject_booking_path(booking), class: "button-xs success", method: :post %>
-                <% end %>
-            <% end %>
-         <% end  %>
-         </ul>
-    <% else %>
-        <p> "You don't have any bookings" </p>
-    <% end %>
 
 </div>
+
+            </form>
+        </div>
+        <div class="overlay-container">
+            <div class="overlay">
+                <div class="overlay-panel overlay-left">
+                    <h1>My books</h1>
+                    <h5>User email: <%= @user.email %> </h5>
+                    <p>Manage all your books here!</p>
+                    <button class="ghost" id="signIn">My bookings</button>
+                </div>
+                <div class="overlay-panel overlay-right">
+                    <h1>My bookings</h1>
+                    <h5>User email: <%= @user.email %> </h5>
+                    <p>Keep track of your bookings!</p>
+                    <button class="ghost" id="signUp">My books</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+</body>
+=======
 </div>
 </div>
 
