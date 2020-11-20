@@ -17,3 +17,33 @@
   .main-content {
     min-height: calc(100vh - 252px);
   }
+
+  .wishlist {
+    color: #e76f51;
+  }
+
+  .wishlist:hover {
+    color: #e76f51;
+    text-decoration: none;
+    color: #264653
+  }
+
+.wishlist-container {
+  margin-left: 20px;
+}
+.card-product-wish {
+   background-color: white;
+  margin-bottom: 50px;
+  width: 300px !important;
+  padding: 20px;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+  border-radius: 20px;
+  margin: 30px;
+}
+
+.user-header-wish {
+  color: #e76f51;
+  text-align: center;
+  margin-top: 100px;
+}
+

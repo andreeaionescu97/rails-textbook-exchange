@@ -85,6 +85,24 @@
         </div>
     </div>
 
+
+<h1 class="user-header-wish mb-5">My wishlist.</h1>
+<div class="wishlist-container d-flex justify-content-center">
+<% if @wishes.any? %>
+    <% @wishes.each do |wish| %>
+    <div class="card-product-wish">
+    <p class="user-book-info-title" style="color: #e76f51;"> <%= wish.book.title%></p>
+     <p class="user-book-info"> <%= wish.book.author %></p>
+    <p class="user-book-info"> <%= wish.book.genre %></p>
+    <p class="user-book-info"> <%= wish.book.publisher %></p>
+  </div>
+    <%end %>
+<% else %>
+ <p class="user-book-info">Nothing in your wishlist!</p>
+<% end %>
+</div>
+
+
 <br><br><br><br><br>
 
 </body>
@@ -92,13 +110,7 @@
 </div>
 </div>
 
-<%# if @wishes.any? %>
-    <%# @wishes.each do |wish| %>
-    <!-- <p><%#= wish.book.title %> </p> -->
-    <%# end %>
-<%# else %>
-    <!-- <p>Nothing in your wishlist!</p> -->
-<%# end %>
+
 
 
 </body>
