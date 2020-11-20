@@ -1,21 +1,46 @@
 <body class="show-page">
+  <div class="show-padding">
   <div class="title-author">
     <h3><%= @book.title %></h3>
     <h3><%= @book.author %></h3>
   </div>
-  <div class="d-flex justify-content-between">
+  <div class="d-flex justify-content-between mb-5">
     <div>
-      <%= cl_image_tag @book.photo.key, height: 400, width: 600, crop: :fill, class: "show-photo" %>
+      <%= cl_image_tag @book.photo.key, height: 300, width: 500, crop: :fill, class: "show-photo" %>
     </div>
+    <div class="d-flex flex-column">
     <div class="book-price">
-      <h3 class="text-price"> PRICE </h3>
-      <h1><%= @book.price %> £</h1>
+      <h1><span style="font-size:15px;">price: &#8287;</span><%= @book.price %> £</h1>
       <% unless @book.user == current_user %>
         <div class="btn-make-booking">
           <%= link_to "Make a booking", new_book_booking_path(@book), class: "btn-color" %>
         </div>
       <% end %>
     </div>
+
+<div class="book-details">
+  <h4 class="book-details"> Book Deatils </h4>
+  <hr class="hr-details">
+      <div class="book-detail-1 d-flex">
+         <div class="icon-details"><%= image_tag "publisher.svg" %></div>
+         <h5><%= @book.publisher %></h5>
+      </div>
+      <div class="book-detail d-flex">
+        <div class="icon-details"><%= image_tag "genre.svg" %></div>
+        <h5><%= @book.genre %></h5>
+      </div>
+       <div class="book-detail d-flex">
+        <div class="icon-details"><%= image_tag "condition.svg" %></div>
+      <h5><%= @book.condition %></h5>
+    </div>
+     <div class="book-detail d-flex">
+        <div class="icon-details"><%= image_tag "year.svg" %></div>
+      <h5><%= @book.year %></h5>
+    </div>
+  </div>
+</div>
+
+
   </div>
 
 <hr class="divide-member">
@@ -36,60 +61,56 @@
 
   <hr class="divide-member">
 
-  <div class="show-container d-flex justify-content-between">
+  <div class="reviews d-flex justify-content-between">
 
-    <div class="book-details">
-      <div class="book-detail-1 d-flex">
-         <div class="icon-details"><%= image_tag "publisher.svg" %></div>
-         <h4><%= @book.publisher %></h4>
-      </div>
-      <div class="book-detail d-flex">
-        <div class="icon-details"><%= image_tag "genre.svg" %></div>
-        <h4><%= @book.genre %></h4>
-      </div>
-       <div class="book-detail d-flex">
-        <div class="icon-details"><%= image_tag "condition.svg" %></div>
-      <h4><%= @book.condition %></h4>
-    </div>
-     <div class="book-detail d-flex">
-        <div class="icon-details"><%= image_tag "year.svg" %></div>
-      <h4><%= @book.year %></h4>
-    </div>
+
+<div class="posted-reviews">
+
+<h2> Reviews </h2>
+
+    <% @book.reviews.each do |rev| %>
+  <% if rev.booking %>
+<div class="d-flex flex-column">
+      <div class="d-flex">
+    <div>
+    <p class="poster-user"><%= rev.booking.user.email %></p>
   </div>
+  <div class="rating-content">
+    <p class="posted-content">content:&#8287;&#8287;<%= rev.content  %> </p>
+    <p class="posted-rating">rating:&#8287;&#8287;<%= rev.rating  %> </p>
+  </div>
+  </div>
+  </div>
+  <% end %>
+
+<% end %>
 
 
+</div>
 
+ <div class="review-container">
+<h3> Add a review </h3>
+<%if current_user.bookings.joins(:book).where("books.id in (?)", @book.id).any? %>
+  <%= form_for [@book, @review] do |f| %>
+    <div class="d-flex justify-content-between">
+    <%= f.label :content, class: "review-label" %>
+    <%= f.text_field :content, class: "review-field" %>
+  </div>
+  <div class="d-flex justify-content-between">
+    <%= f.label :rating, class: "review-label" %>
+    <%= f.text_field :rating, class: "review-field" %>
+  </div>
+    <%=  f.hidden_field :booking_id, value: Booking.find_by(user: current_user, book: @book).id %>
+    <%= f.submit :submit, class: "review-submit" %>
+  <% end %>
+<%end%>
+  </div>
 
 </div>
 
 <hr class="divide-member-2">
 
-
-
-
-<%# the reviews form andreaa please style this bit  %>
-
-<% @book.reviews.each do |rev| %>
-  <% if rev.booking %>
-    <%= rev.booking.user.email %>
-    <%= rev.content  %> <%= rev.rating  %> 
-  <% end %>
-<% end %>
-
-
-
-<%if current_user.bookings.joins(:book).where("books.id in (?)", @book.id).any? %>
-  <%= form_for [@book, @review] do |f| %>
-    <%= f.label :content %>
-    <%= f.text_field :content %>
-    <%= f.label :rating %>
-    <%= f.text_field :rating %>
-    <%=  f.hidden_field :booking_id, value: Booking.find_by(user: current_user, book: @book).id %>
-    <%= f.submit %>
-  <% end %>
-<%end%>  
-
-
+</div>
 </body>
 
 

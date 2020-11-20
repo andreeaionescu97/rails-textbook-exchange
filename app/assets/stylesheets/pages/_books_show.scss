@@ -1,11 +1,11 @@
 .book-price {
   justify-content: center !important;
   width: 300px;
-  height: 300px;
+  height: 200px;
   background-color: #e76f51;
   box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.5);
   border-radius: 20px;
-  padding: 50px;
+  padding: 40px;
   margin-right: 50px;
   text-align: center;
 }
@@ -45,9 +45,10 @@
 }
 
 .book-details {
-  margin-left: 50px;
+  // margin-left: 50px;
   justify-content: space-between;
   color: #264653;
+  margin-top: 20px;
 }
 
 .show-photo {
@@ -72,18 +73,18 @@
 }
 
 .icon-details {
-  width: 40px;
-  height: 40px;
+  width: 30px;
+  height: 30px;
   margin-right: 50px;
 }
 
 .book-detail {
-  margin-top: 40px;
-
+  margin-top: 30px;
+color: #264653;
 }
 
 .book-detail-1 {
-  margin-top: 10px;
+color: #264653;
 }
 
 .text-price {
@@ -105,7 +106,7 @@
   width: 200px;
   text-align: center;
   margin: 0 auto;
-  margin-top: 50px;
+  margin-top: 20px;
 }
 
 .btn-make-booking:hover {
@@ -124,4 +125,101 @@
 .search-bar {
   // width: 500px;
 
+}
+
+.review-container {
+  justify-content: center !important;
+  width: 400px;
+  height: 300px;
+  background-color: white;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+  border-radius: 20px;
+  padding-top: 30px;
+  padding-left: 50px;
+  padding-right: 50px;
+  margin-right: 50px;
+  text-align: center;
+  margin-top: 90px;
+  position: sticky;
+}
+
+.review-container h3 {
+  color: #e76f51;
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.review-label {
+  color: #264653;
+  text-align:center;
+  margin-bottom:30px;
+
+}
+
+.review-field {
+  border-radius: 20px;
+  border-style: solid;
+  border-color: #e76f51;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+  background-color: white;
+  margin-left: 30px;
+  width: 200px !important;
+  height: 30px !important;
+}
+
+.review-field:hover {
+  border: none;
+  outline: none;
+}
+
+.review-submit {
+  border-radius: 30px;
+  border-style: none;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+  background-color: #e76f51;
+  color: white;
+  padding: 10px 20px;
+  margin-top: 10px;
+
+}
+
+.show-padding{
+  padding-left: 50px;
+  padding-right: 50px;
+}
+
+.book-details {
+  color: #e76f51;
+
+}
+
+.hr-details {
+  margin-right: 50px;
+  padding-bottom: 20px;
+}
+
+.posted-reviews {
+  margin-left: 50px;
+}
+
+.posted-reviews h2 {
+  color: #e76f51;
+  margin-bottom: 30px;
+}
+
+.poster-user {
+  color: #264653;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+.posted-content {
+   color: #e76f51;
+  margin-bottom: 5px;
+}
+.posted-rating {
+  color: #e76f51;
+}
+
+.rating-content {
+  margin-left: 30px;
 }
