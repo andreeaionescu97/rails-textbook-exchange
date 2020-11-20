@@ -9,4 +9,5 @@ class User < ApplicationRecord
   has_many :incoming_bookings, through: :books, source: :bookings
 
   has_one_attached :avatar
+  has_one_attached :photo
 end
